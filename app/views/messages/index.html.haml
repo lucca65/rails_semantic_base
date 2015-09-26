@@ -1,0 +1,22 @@
+.ui.page.grid
+  .sixteen.wide.column
+    %table.ui.orange.table
+      %thead
+        %th
+          = t('.message')
+        %th
+      %tbody
+        - @messages.each do |message|
+          %tr
+            %td
+              = message.text
+            %td.aligned.right{style: 'width: 200px'}
+              - if can? :manage, message
+                = link_to t('.edit') ,edit_message_path(message),class: 'ui icon button'
+                = link_to t('.delete'), message_path(message), method: :delete,class: 'ui icon button red'
+    - if @messages.total_pages > 1
+      .ui.center.aligned.segment
+        = paginate @messages
+  .sixteen.wide.column
+    - if can? :create, @messages
+      = link_to t('.new_message'),new_message_path, class: 'ui button'

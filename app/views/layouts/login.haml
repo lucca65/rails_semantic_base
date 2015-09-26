@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %meta{content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}/
+    %title Kiik::Board
+    = stylesheet_link_tag 'login', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    = yield
+
+  = javascript_include_tag 'login', 'data-turbolinks-track' => true

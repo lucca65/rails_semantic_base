@@ -1,0 +1,29 @@
+#= require jquery
+#= require turbolinks
+#= require semantic-ui
+
+background_property = undefined
+image_path = undefined
+random = undefined
+random = Math.floor(Math.random() * 5 + 1)
+switch random
+    when 1
+        image_path = '<%= image_path('1.jpg') %>'
+    when 2
+        image_path = '<%= image_path('2.jpg') %>'
+    when 3
+        image_path = '<%= image_path('3.jpg') %>'
+    when 4
+        image_path = '<%= image_path('4.jpg') %>'
+    when 5
+        image_path = '<%= image_path('5.jpg') %>'
+
+background_property = 'url(' + image_path + ') no-repeat center center fixed'
+
+#Setting background
+$('html').css 'background', background_property
+
+$('html').css('background-size', 'cover').css('-o-background-size', 'cover').css('-moz-background-size', 'cover').css('-webkit-background-size', 'cover').css 'filter', 'brightness(50%)'
+
+#Initialize Semantic Components
+$('.ui.checkbox').checkbox()

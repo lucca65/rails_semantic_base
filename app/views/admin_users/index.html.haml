@@ -1,0 +1,22 @@
+.ui.page.grid
+  .sixteen.wide.column
+    %table.ui.orange.table
+      %thead
+        %th
+          Email
+        %th
+      %tbody
+        - @admin_users.each do |admin|
+          %tr
+            %td
+              = admin.email
+            %td.aligned.right{style: 'width: 200px'}
+              - if can? :manage, admin
+                = link_to t('.edit') ,edit_admin_user_path(admin),class: 'ui icon button'
+                = link_to t('.delete'), admin_user_path(admin), method: :delete,class: 'ui icon button red'
+    - if @admin_users.total_pages > 1
+      .ui.center.aligned.segment
+        = paginate @admin_users
+  .sixteen.wide.column
+    - if can? :create, @admin_users
+      = link_to t('.new_user'),new_admin_user_path, class: 'ui button'

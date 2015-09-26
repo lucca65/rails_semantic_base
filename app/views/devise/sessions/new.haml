@@ -1,0 +1,31 @@
+.ui.two.column.stackable.center.aligned.page.grid
+  .column.login
+    .ui.orange.segment.left.aligned
+      %h4.ui.dividing.header
+        = t('.login')
+      = form_for(resource, as: resource_name,
+                           url: session_path(resource_name),
+                           html: { class: 'ui form left'} ) do |f|
+        .field
+          = f.label :email
+          .ui.corner.labeled.input.left.icon
+            = f.email_field :email, autofocus: true
+            %i.mail.icon
+            .ui.corner.label
+              %i.asterisk.icon
+        .field
+          %label
+            = t('.password')
+          .ui.corner.labeled.input.left.icon
+            = f.password_field :password, autocomplete: 'off'
+            %i.lock.icon
+            .ui.corner.label
+              %i.asterisk.icon
+        - if devise_mapping.rememberable?
+          .field.remember
+            .ui.toggle.checkbox
+              = f.check_box :remember_me
+              %label
+                = t('.remember_me')
+        = f.submit t('.login'), class: 'ui submit button orange login-btn'
+        = render 'devise/shared/links'

@@ -1,0 +1,36 @@
+.header
+  .ui.page.grid
+    .sixteen.wide.column
+      .tab.header.segment.menu.attached
+        .ui.menu
+          = link_to(root_path, class: 'header item') do
+            Kiik::Board
+          = if can? :manage, current_admin_user
+            = link_to(admin_users_path, class: active_menu(admin_users_path, 'item')) do
+              %i.users.icon
+              = t('.users')
+            = link_to(messages_path, class: active_menu(messages_path, 'item')) do
+              %i.comment.icon
+              = t('.messages')
+          .right.menu
+            .ui.dropdown.item
+              = t('.language')
+              %i.dropdown.icon
+              .menu
+                = link_to(params.merge(locale: :en), class: 'item') do
+                  = semantic_icon(:us, :flag)
+                  English
+                = link_to(params.merge(locale: :'pt-BR'), class: 'item') do
+                  = semantic_icon(:brazil, :flag)
+                  Português
+            .ui.dropdown.item
+              = current_admin_user.email
+              %i.dropdown.icon
+              .menu
+                = link_to(edit_passwords_path(@admin_user), class: 'item') do
+                  %i.key.icon.right.floated
+                  = t('.alter_password')
+                = link_to(destroy_admin_user_session_path, method: :delete, class: 'item') do
+                  %i.power.icon.right.floated
+                  = t('.exit')
+

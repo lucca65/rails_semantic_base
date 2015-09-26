@@ -1,0 +1,18 @@
+= form_for @admin_user, html: { class: 'ui form left'}  do |f|
+  .field
+    = f.label :email
+    .ui.corner.labeled.input
+    = f.email_field :email, autofocus: 'true'
+  .field
+    %label= t('.password')
+    .ui.corner.labeled.input
+    = f.password_field :password, autocomplete: 'off'
+  .field
+    %label= t('.password_confirmation')
+    .ui.corner.labeled.input
+    = f.password_field :password_confirmation, autocomplete: 'off'
+  .field
+    %label= t('.super')
+    .ui.orange.toggle.checkbox
+      = f.check_box :super, autocomplete: 'off'
+  = f.submit t('.submit'), class: 'ui submit button orange login-btn'

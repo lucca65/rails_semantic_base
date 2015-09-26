@@ -1,0 +1,25 @@
+-#.ui.two.column.stackable.center.aligned.page.grid
+  -#.column.login
+    -#.ui.orange.segment.left.aligned
+      -#%h4.ui.dividing.header
+        -#= t('.change_password_title')
+      -#= devise_error_messages!
+      -#= form_for(resource, as: resource_name,
+                           -#url: password_path(resource_name),
+                           -#html: { class: 'ui form left', method: :put }) do |f|
+        -#= f.hidden_field :reset_password_token
+        -#.field
+          -#= f.label :password, t('.new_password')
+          -#.ui.fluid.corner.labeled.input.left.icon
+            -#= f.password_field :password, autofocus: true, autocomplete: 'off'
+            -#%i.key.icon
+            -#.ui.corner.label
+              -#%i.asterisk.icon
+        -#.field
+          -#= f.label :password_confirmation, t('.confirm_password')
+          -#.ui.fluid.corner.labeled.input.left.icon
+            -#= f.password_field :password_confirmation, autocomplete: 'off'
+            -#%i.key.icon
+            -#.ui.corner.label
+              -#%i.asterisk.icon
+        -#= f.submit t('.change_password'), class: 'ui fluid submit button orange recovery-btn'

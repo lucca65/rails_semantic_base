@@ -1,0 +1,120 @@
+pt-BR:
+  activerecord:
+    models:
+      admin_user: User
+    attributes:
+      admin_user:
+        password: Senha
+        password_confirmation: Confirmação de Senha
+  home:
+    index:
+      numbers: Números Mensais
+      currency: 'Moeda: R$'
+      average: Valor médio das transações
+      count: Transações
+      minimum: Valor mínimo
+      maximum: Valor máximo
+      top_day: Dia com valor máximo
+      Total: Total
+      no_transactions: Ainda nenhuma transação neste mês!
+      no_transactions_custom: Nenhuma transação feita neste mês!
+      filter: Filtrar
+  transactions:
+    index:
+      payer: Pagante
+      amount: Valor
+      recipient: Recebedor
+      status: Status
+      date: Data
+      success: Sucesso
+      failure: Falha
+      all: Todos
+      no_transactions: Nenhum registro encontrado!
+      transaction_types: Tipo de Transação
+      export_csv: Exportar para CSV
+  shared:
+    top_menu:
+      transactions: Transações
+      language: Linguagem
+      exit: Sair
+      users: Usuários
+      alter_password: 'Mudar Senha'
+      messages: Mensagens
+    alerts:
+      message: Mensagem
+      message_warning: Atenção
+      message_news: Novidades
+  devise:
+    sessions:
+      new:
+        login: Entrar
+        password: Senha
+        remember_me: Lembrar
+    shared:
+      links:
+        forgot: Esqueceu sua senha?
+    passwords:
+      new:
+        forgot_password_title: 'Esqueceu a senha?'
+        send_password_instructions: 'Me envie instruções de redefinição de senha'
+      edit:
+        change_password_title: 'Mude sua senha'
+        new_password: 'Nova senha'
+        confirm_password: 'Confirme nova senha'
+        change_password: 'Mudar senha'
+    mailer:
+      reset_password_instructions:
+        hello: "Olá"
+  admin_users:
+    form:
+      password_confirmation: Confirmação de Senha
+      password: Senha
+      submit: Salvar Usuário
+      transaction_types: Tipos de Transação
+      super: Usuário Super
+    edit:
+      header: Editar Usuário
+      error: Erro
+      error_message: Impediram esse usuário de ser salvo
+    index:
+      header: Usuários
+      edit: Editar
+      delete: Apagar
+      new_user: Novo Usuário
+    new:
+      header: Novo Usuário
+      error: Erro
+      error_message: Impediram esse usuário de ser salvo
+      match_password: Senhas não conferem
+      success: Usuário Administrador criado
+    show:
+      header: Usuário
+  delete:
+      message: Tem certeza?
+  passwords:
+    form:
+      change_password_title: Mudar Senha
+      new_password: Nova Senha
+      confirm_password: Confirmar Senha
+      change_password: Enviar
+      cancel: Cancelar
+  messages:
+    form:
+      submit: Salvar Mensagem
+      type: Selecione tipo de mensagem
+      info: Info
+      text: Conteúdo
+      type_label: Tipo de Mensagem
+      to_all: Global
+    new:
+      header: Nova Mensagem
+      error: erro
+      error_message: impediram essa mensagem de ser salva
+    show:
+      header: Mensagem
+    index:
+      message: Mensagem
+      new_message: Nova Mensagem
+    edit:
+      header: Editar Mensagem
+  users: Usuários

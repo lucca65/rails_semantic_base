@@ -1,0 +1,17 @@
+.ui.page.grid
+  .sixteen.wide.column
+    %h1= t('.header')
+    - if @message.errors.any?
+      .ui.info.icon.message.notice
+        %i.close.icon
+        %i.info.icon
+        .content
+          .header
+            Info
+          %p
+            = pluralize(@message.errors.count, t('.error'))
+            = t('.error_message')
+            %ul
+              - @message.errors.full_messages.each do |msg|
+                #li= msg
+    = render 'form'

@@ -1,0 +1,116 @@
+en:
+  activerecord:
+    models:
+      admin_user: User
+    attributes:
+      admin_user:
+        password: Password2
+  home:
+    index:
+      numbers: Monthly Numbers
+      currency: 'Currency: BRL'
+      average: Avarage transaction amount
+      count: Transactions
+      minimum: Minimum amount
+      maximum: Maximum amount
+      top_day: Day with maximum amount
+      total: Total
+      no_transactions: No transactions on this month yet!
+      no_transactions_custom: No transactions for this month!
+      filter: Filter
+  transactions:
+    index:
+      payer: Payer
+      amount: Amount
+      recipient: Recipient
+      status: Status
+      date: Date
+      success: Success
+      failure: Failure
+      all: All
+      no_transactions: No transactions found!
+      transaction_types: Transaction Type
+      export_csv: Export to CSV
+  shared:
+    top_menu:
+      transactions: Transactions
+      language: Language
+      exit: Exit
+      users: Users
+      alter_password: Change Password
+      messages: Messages
+    alerts:
+      message: Message
+      message_warning: Warning
+      message_news: News
+  devise:
+    sessions:
+      new:
+        login: Log In
+        password: Password
+        remember_me: Remember me
+    passwords:
+      edit:
+        new_password: New password
+        confirm_password: Confirm password
+        change_password: Change password
+    mailer:
+      reset_password_instructions:
+        hello: "Hello"
+        change_password: "Change my pasword"
+  shared:
+    links:
+      forgot: Forgot your password?
+  admin_users:
+    form:
+      password_confirmation: Password Confirmation
+      password: Password
+      submit: Save User
+      transaction_types: Transaction Types
+      super: Super User
+    edit:
+      header: Edit User
+      error: error
+      error_message: Prevented this user from being saved
+    index:
+      header: Users
+      edit: Edit
+      delete: Delete
+      new_user: New User
+    new:
+      header: New User
+      error: error
+      error_message: prevented this user from being saved
+      match_password: Passwords don't match
+      success: User created successfully
+    show:
+      header: User
+  delete:
+    message: Are you sure?
+  passwords:
+    form:
+      change_password_title: Change Password
+      new_password: New Password
+      confirm_password: Confirm Password
+      change_password: Send
+      cancel: Cancel
+  messages:
+    form:
+      submit: Save Message
+      type: Select message type
+      info: Info
+      text: Content
+      type_label: Message Type
+      to_all: Global
+    new:
+      header: New Message
+      error: error
+      error_message: prevented this message from being saved
+    show:
+      header: Message
+    index:
+      message: Message
+      new_message: New Message
+    edit:
+      header: Edit Message
+  users: Users

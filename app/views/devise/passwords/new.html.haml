@@ -1,0 +1,17 @@
+-#.ui.two.column.stackable.center.aligned.page.grid
+  -#.column.login
+    -#.ui.orange.segment.left.aligned
+      -#%h4.ui.dividing.header
+        -#= t('.forgot_password_title')
+      -#= devise_error_messages!
+      -#= form_for(resource, as: resource_name,
+                           -#url: password_path(resource_name),
+                           -#html: { class: 'ui form left', method: :post}) do |f|
+        -#.field
+          -#= f.label :email
+          -#.ui.fluid.corner.labeled.input.left.icon
+            -#= f.email_field :email, autofocus: true
+            -#%i.mail.icon
+            -#.ui.corner.label
+              -#%i.asterisk.icon
+        -#= f.submit t('.send_password_instructions'), class: 'ui fluid submit button orange recovery-btn'

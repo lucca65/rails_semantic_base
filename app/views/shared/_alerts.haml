@@ -1,0 +1,42 @@
+.ui.page.grid
+  .sixteen.wide.column
+    - flash.each do |key, value|
+      - if key == 'info'
+        .ui.teal.icon.message.notice
+          %i.close.icon
+          %i.info.icon
+          .content
+            .header
+              Info
+            %ul.list
+              = raw(value)
+
+      - if key == 'message_warning'
+        .ui.negative.icon.message.alert
+          %i.close.icon
+          %i.warning.icon
+          .content
+            .header
+              =t('.message_warning')
+            %ul.list
+              = raw(value)
+
+      - if key == 'message_news'
+        .ui.positive.icon.message.notice
+          %i.close.icon
+          %i.warning.icon
+          .content
+            .header
+              =t('.message_news')
+            %ul.list
+              = raw(value)
+
+      - if key == 'message'
+        .ui.info.icon.message.notice
+          %i.close.icon
+          %i.warning.icon
+          .content
+            .header
+              =t('.message')
+            %ul.list
+              = raw(value)

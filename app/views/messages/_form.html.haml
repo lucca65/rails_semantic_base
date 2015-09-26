@@ -1,0 +1,20 @@
+= form_for @message, html: { class: 'ui form left'}  do |f|
+  .field
+    = f.label t('.text')
+    .ui.input
+      = f.text_area :text, autofocus: 'true'
+  .field
+    = f.label t('.type_label')
+    .ui.input
+      = f.select :message_type, Message.message_types.keys.map { |w| [t(w), w]},{:include_blank => t('.type')}, {class: 'ui fluid dropdown search'}
+  .field
+    = f.label t('.to_all')
+    #check_to_all.ui.orange.toggle.checkbox
+      = f.check_box :to_all, autocomplete: 'off'
+  #users.field
+    = f.label t('users')
+    .ui.input
+      = select_tag :users, options_from_collection_for_select(AdminUser.order(:email),
+      :id,:email,@message.admin_users.map{|t| t.id}), multiple: true, class: 'ui fluid dropdown search'
+
+  = f.submit t('.submit'), class: 'ui submit button orange login-btn'
