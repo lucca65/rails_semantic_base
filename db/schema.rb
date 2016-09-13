@@ -11,15 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603191047) do
+ActiveRecord::Schema.define(version: 20160912215431) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "admin_user_companies", force: :cascade do |t|
+    t.integer "company_id"
+    t.integer "admin_user_id"
+  end
+
+  add_index "admin_user_companies", ["admin_user_id"], name: "index_admin_user_companies_on_admin_user_id", using: :btree
+  add_index "admin_user_companies", ["company_id"], name: "index_admin_user_companies_on_company_id", using: :btree
 
   create_table "admin_user_transaction_types", force: :cascade do |t|
     t.integer "admin_user_id"
     t.integer "transaction_type_id"
   end
 
-  add_index "admin_user_transaction_types", ["admin_user_id"], name: "index_admin_user_transaction_types_on_admin_user_id"
-  add_index "admin_user_transaction_types", ["transaction_type_id"], name: "index_admin_user_transaction_types_on_transaction_type_id"
+  add_index "admin_user_transaction_types", ["admin_user_id"], name: "index_admin_user_transaction_types_on_admin_user_id", using: :btree
+  add_index "admin_user_transaction_types", ["transaction_type_id"], name: "index_admin_user_transaction_types_on_transaction_type_id", using: :btree
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "",   null: false
@@ -37,18 +48,54 @@ ActiveRecord::Schema.define(version: 20150603191047) do
     t.boolean  "super",                  default: true
   end
 
-  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
-  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
+  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "audits", force: :cascade do |t|
-    t.integer  "admin_user_id"
+    t.integer  "auditable_id"
+    t.string   "auditable_type"
+    t.integer  "associated_id"
+    t.string   "associated_type"
+    t.integer  "user_id"
+    t.string   "user_type"
+    t.string   "username"
     t.string   "action"
-    t.string   "ip"
+    t.text     "audited_changes"
+    t.integer  "version",         default: 0
+    t.string   "comment"
+    t.string   "remote_address"
+    t.string   "request_uuid"
+    t.datetime "created_at"
+  end
+
+  add_index "audits", ["associated_id", "associated_type"], name: "associated_index", using: :btree
+  add_index "audits", ["auditable_id", "auditable_type"], name: "auditable_index", using: :btree
+  add_index "audits", ["created_at"], name: "index_audits_on_created_at", using: :btree
+  add_index "audits", ["request_uuid"], name: "index_audits_on_request_uuid", using: :btree
+  add_index "audits", ["user_id", "user_type"], name: "user_index", using: :btree
+
+  create_table "companies", force: :cascade do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "document"
+    t.string   "address"
+    t.string   "address_number"
+    t.string   "address_complement"
+    t.string   "address_neighborhood"
+    t.string   "address_city"
+    t.string   "address_state"
+    t.string   "address_zip"
+    t.string   "avatar"
+    t.decimal  "lat"
+    t.decimal  "lng"
+    t.boolean  "status"
+    t.string   "facebook_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "audits", ["admin_user_id"], name: "index_audits_on_admin_user_id"
+  add_index "companies", ["email"], name: "index_companies_on_email", unique: true, using: :btree
 
   create_table "messages", force: :cascade do |t|
     t.text     "text"
@@ -65,4 +112,10 @@ ActiveRecord::Schema.define(version: 20150603191047) do
     t.datetime "updated_at"
   end
 
+# Could not dump table "users" because of following StandardError
+#   Unknown type 'gender' for column 'gender'
+
+  add_foreign_key "admin_user_companies", "admin_users"
+  add_foreign_key "admin_user_companies", "companies"
+  add_foreign_key "messages_users", "admin_users"
 end

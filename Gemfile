@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.3'
+ruby '2.3.0'
 
 # Base
 gem 'rails', '4.2.4'
@@ -23,15 +23,16 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'turbolinks'
-
-gem 'mysql'
-gem 'mysql2'
-gem 'foreigner'
-
 gem 'therubyracer', platforms: :ruby
+gem 'jbuilder', '~> 2.3'
+
+gem 'pg'
+gem 'paperclip', '~> 4.3'
+
+#Audit
+gem "audited-activerecord", "~> 4.2"
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'spring'
   gem 'pry-rails'
   gem 'better_errors'

@@ -57,26 +57,26 @@ class MessagesController < ApplicationController
 
   private
 
-    def handle_user_messages
-      if params[:message][:to_all]== '1'
+  def handle_user_messages
+    if params[:message][:to_all]== '1'
 
-        users = AdminUser.all
-        users.each do |user|
-          MessagesUser.create(admin_user_id: user.id, message_id: @message.id)
-        end
-      else
+      users = AdminUser.all
+      users.each do |user|
+        MessagesUser.create(admin_user_id: user.id, message_id: @message.id)
+      end
+    else
 
-        params[:users].each do |user|
-          MessagesUser.create(admin_user_id: user, message_id: @message.id)
-        end
+      params[:users].each do |user|
+        MessagesUser.create(admin_user_id: user, message_id: @message.id)
       end
     end
+  end
 
-    def set_message
-      @message = Message.find(params[:id])
-    end
+  def set_message
+    @message = Message.find(params[:id])
+  end
 
-    def message_params
-        params.require(:message).permit!
-    end
+  def message_params
+    params.require(:message).permit!
+  end
 end

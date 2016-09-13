@@ -1,6 +1,12 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
-  factory :admin_user do
+  factory :user do
+    name "MyString"
+cpf "MyString"
+email "MyString"
+genre 1
+active false
+approved false
+last_login "2016-09-12 17:48:24"
   end
+
 end
