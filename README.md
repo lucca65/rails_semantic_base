@@ -1,4 +1,5 @@
-# Rails 4 + Semantic Base Project
+# Rails 4 + Semantic Base Project [![Ebert](https://ebertapp.io/github/lucca65/rails_semantic_base.svg)](https://ebertapp.io/github/lucca65/rails_semantic_base)
+
 A Semantic UI powered Rails app with some of my favorite gems
 
 Several of my favorite gems are in this project. Use this if you want an easy project setup using devise and Semantic UI. For Assets the project is running with Sass and CoffeeScript. Icons provided by Font Awesome.
