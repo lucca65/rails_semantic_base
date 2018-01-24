@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.3.0'
 
 # Base
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.10'
 gem 'devise'
 gem 'kaminari'
 gem 'cancancan', '~> 1.10.1'
